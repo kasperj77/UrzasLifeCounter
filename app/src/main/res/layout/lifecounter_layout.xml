@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="horizontal" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="fill_parent">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight=".5"
-        android:background="#e4e1e1">
+        android:layout_weight="3">
 
         <TextView
             android:layout_width="wrap_content"
@@ -24,36 +23,74 @@
             android:layout_height="wrap_content"
             android:text="20"
             android:id="@+id/txtValue"
-            android:layout_below="@+id/yourLife"
-            android:layout_centerHorizontal="true"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:layout_marginTop="20dp" />
+            android:textSize="80dp"
+            android:layout_below="@+id/yourLife"
+            android:layout_toRightOf="@+id/increaseYourLife"
+            android:layout_toEndOf="@+id/increaseYourLife"
+            android:layout_marginLeft="28dp"
+            android:layout_marginStart="28dp" />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="+ 1"
             android:id="@+id/increaseYourLife"
-            android:layout_below="@+id/txtValue"
-            android:layout_alignRight="@+id/txtValue"
-            android:layout_alignEnd="@+id/txtValue"
-            android:layout_marginTop="29dp" />
+            android:layout_below="@+id/yourLife"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="- 1"
             android:id="@+id/decreaseYourLife"
-            android:layout_alignBottom="@+id/increaseYourLife"
-            android:layout_toRightOf="@+id/increaseYourLife"
-            android:layout_toEndOf="@+id/increaseYourLife"
-            android:layout_marginTop="29dp" />
+            android:layout_below="@+id/increaseYourLife"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
     </RelativeLayout>
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight=".5">
+        android:layout_weight="4">
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="New Game"
+            android:id="@+id/newGame"
+            android:layout_marginTop="54dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Flip Coin"
+            android:id="@+id/coinFlip"
+            android:layout_below="@+id/newGame"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp" />
+
+        <Button
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Roll Dice"
+            android:id="@+id/diceRoll"
+            android:layout_below="@+id/coinFlip"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="10dp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="3">
 
         <TextView
             android:layout_width="wrap_content"
@@ -70,30 +107,31 @@
             android:layout_height="wrap_content"
             android:text="20"
             android:id="@+id/txtValue2"
-            android:layout_below="@+id/opponentLife"
-            android:layout_centerHorizontal="true"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:layout_marginTop="20dp" />
+            android:textSize="80dp"
+            android:layout_alignTop="@+id/increaseOppLife"
+            android:layout_alignLeft="@+id/opponentLife"
+            android:layout_alignStart="@+id/opponentLife" />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="+ 1"
             android:id="@+id/increaseOppLife"
-            android:layout_below="@+id/txtValue2"
-            android:layout_alignRight="@+id/txtValue2"
-            android:layout_alignEnd="@+id/txtValue2"
-            android:layout_marginTop="29dp" />
+            android:layout_below="@+id/opponentLife"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="- 1"
             android:id="@+id/decreaseOppLife"
-            android:layout_alignBottom="@+id/increaseOppLife"
-            android:layout_toRightOf="@+id/increaseOppLife"
-            android:layout_toEndOf="@+id/increaseOppLife" />
+            android:layout_below="@+id/increaseOppLife"
+            android:layout_alignLeft="@+id/increaseOppLife"
+            android:layout_alignStart="@+id/increaseOppLife" />
 
     </RelativeLayout>
+
 
 </LinearLayout>
