@@ -33,13 +33,13 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
 
         btnAddOpp = (Button) findViewById(R.id.increaseOppLife);
         btnDecreaseOpp = (Button) findViewById(R.id.decreaseOppLife);
-        oppLife = (TextView) findViewById(R.id.txtValue2);
+        oppLife = (TextView) findViewById(R.id.oppLifeTotal);
 
         // Initializing our buttons and life total ----------------------------------------------
 
         btnAddLife = (Button) findViewById(R.id.increaseYourLife);
         btnDecreaseLife = (Button) findViewById(R.id.decreaseYourLife);
-        yourLife = (TextView) findViewById(R.id.txtValue);
+        yourLife = (TextView) findViewById(R.id.yourLifeTotal);
 
         // Initializing extra buttons -----------------------------------------------------------
 
