@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">UrzasLifeCounter</string>
+    <string name="action_settings">Settings</string>
+    <string name="action_rollDice">Roll Dice</string>
+    <string name="action_flipCoin">Flip Coin</string>
+
 </resources>
