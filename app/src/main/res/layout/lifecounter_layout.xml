@@ -138,42 +138,6 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="4">
-
-        <Button
-            style="?android:attr/buttonStyleSmall"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="New Game"
-            android:id="@+id/newGame"
-            android:layout_marginTop="91dp"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
-
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Flip Coin"
-            android:id="@+id/coinFlip"
-            android:layout_below="@+id/newGame"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="10dp" />
-
-        <Button
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:text="Roll Dice"
-            android:id="@+id/diceRoll"
-            android:layout_below="@+id/coinFlip"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_marginTop="10dp" />
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
         android:layout_weight="3">
 
         <TextView

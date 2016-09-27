@@ -39,8 +39,6 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
     private Button btnAddOppPoison;
     private Button btnDecreaseOppPoison;
 
-    private Button btnRestart;
-
 
     private TextView oppLife;
     private TextView yourLife;
@@ -90,9 +88,6 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
         oppEnergyCount = (TextView) findViewById(R.id.energyCountOpp);
         oppPoisonCount = (TextView) findViewById(R.id.poisonCounterOpp);
 
-        // Initializing extra buttons -----------------------------------------------------------
-
-        btnRestart = (Button) findViewById(R.id.newGame);
 
         // Setting onClick listeners for the buttons --------------------------------------------
 
@@ -100,7 +95,6 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
         btnDecreaseLife.setOnClickListener(this);
         btnAddOpp.setOnClickListener(this);
         btnDecreaseOpp.setOnClickListener(this);
-        btnRestart.setOnClickListener(this);
         btnAddYourEnergy.setOnClickListener(this);
         btnDecreaseYourEnergy.setOnClickListener(this);
         btnAddYourPoison.setOnClickListener(this);
@@ -166,28 +160,37 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
                 oppPoisonCount.setText("" + oppPoisonValue);
                 break;
 
-
-
-            case R.id.newGame:
-                yourValue = 20;
-                oppValue = 20;
-                yourEnergyValue = 0;
-                yourPoisonValue = 0;
-                oppEnergyValue = 0;
-                oppPoisonValue = 0;
-                yourLife.setText("" + yourValue);
-                oppLife.setText("" + oppValue);
-                yourEnergyCount.setText("" + yourEnergyValue);
-                yourPoisonCount.setText("" + yourPoisonValue);
-                oppEnergyCount.setText("" + oppEnergyValue);
-                oppPoisonCount.setText("" + oppPoisonValue);
-                Toast.makeText(MainActivity.this, "A new game has started",
-                        Toast.LENGTH_LONG).show();
-                break;
-
         }
 
     }
+
+    private void newGame(){
+
+        yourValue = 20;
+        oppValue = 20;
+        yourEnergyValue = 0;
+        yourPoisonValue = 0;
+        oppEnergyValue = 0;
+        oppPoisonValue = 0;
+        yourLife.setText("" + yourValue);
+        oppLife.setText("" + oppValue);
+        yourEnergyCount.setText("" + yourEnergyValue);
+        yourPoisonCount.setText("" + yourPoisonValue);
+        oppEnergyCount.setText("" + oppEnergyValue);
+        oppPoisonCount.setText("" + oppPoisonValue);
+        Toast.makeText(MainActivity.this, "A new game has started",
+                Toast.LENGTH_LONG).show();
+    }
+
+    private void flipCoin(){
+
+    }
+
+    private void diceRoll(){
+
+    }
+
+
 
     // setting up menu options and inflating it --------------------------------
     @Override
@@ -209,6 +212,14 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
         if (id == R.id.action_settings) {
             return true;
         }
+        switch (id){
+
+            case R.id.action_roll:
+                roleDice dice = new roleDice();
+                dice.show(getFragmentManager(),"");
+                break;
+        }
+
         return super.onOptionsItemSelected(item);
     }
 }
