@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="horizontal" android:layout_width="match_parent"
+    android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="fill_parent">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="3">
+        android:layout_weight="5">
 
         <TextView
             android:layout_width="wrap_content"
@@ -138,130 +138,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="3">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Opponent Life"
-            android:id="@+id/opponentLife"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="10dp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="20"
-            android:id="@+id/oppLifeTotal"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textSize="80dp"
-            android:layout_alignTop="@+id/increaseOppLife"
-            android:layout_alignLeft="@+id/opponentLife"
-            android:layout_alignStart="@+id/opponentLife" />
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="+ 1"
-            android:id="@+id/increaseOppLife"
-            android:layout_below="@+id/opponentLife"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true" />
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="- 1"
-            android:id="@+id/decreaseOppLife"
-            android:layout_below="@+id/increaseOppLife"
-            android:layout_alignLeft="@+id/increaseOppLife"
-            android:layout_alignStart="@+id/increaseOppLife" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Poison"
-            android:id="@+id/oppPoison"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:layout_below="@+id/energyCountOpp"
-            android:layout_alignLeft="@+id/energyCountOpp"
-            android:layout_alignStart="@+id/energyCountOpp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="0"
-            android:id="@+id/energyCountOpp"
-            android:textSize="40dp"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:layout_below="@+id/oppEnergy"
-            android:layout_alignLeft="@+id/oppEnergy"
-            android:layout_alignStart="@+id/oppEnergy"
-            android:layout_centerInParent="true" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Energy"
-            android:id="@+id/oppEnergy"
-            android:layout_centerVertical="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_marginLeft="20dp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="0"
-            android:id="@+id/poisonCounterOpp"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textSize="40dp"
-            android:layout_below="@+id/oppPoison"
-            android:layout_alignLeft="@+id/oppPoison"
-            android:layout_alignStart="@+id/oppPoison" />
-
-        <Button
-            style="?android:attr/buttonStyleSmall"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="-1"
-            android:id="@+id/decreaseOppEnergy"
-            android:layout_alignTop="@+id/increaseOppEnergy"
-            android:layout_alignLeft="@+id/decreaseOppPoison"
-            android:layout_alignStart="@+id/decreaseOppPoison" />
-
-        <Button
-            style="?android:attr/buttonStyleSmall"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="+1"
-            android:id="@+id/increaseOppEnergy"
-            android:layout_above="@+id/oppPoison"
-            android:layout_toLeftOf="@+id/decreaseOppLife"
-            android:layout_toStartOf="@+id/decreaseOppLife" />
-
-        <Button
-            style="?android:attr/buttonStyleSmall"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="- 1"
-            android:id="@+id/decreaseOppPoison"
-            android:layout_toRightOf="@+id/increaseOppPoison"
-            android:layout_toEndOf="@+id/increaseOppPoison"
-            android:layout_alignTop="@+id/increaseOppPoison" />
-
-        <Button
-            style="?android:attr/buttonStyleSmall"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="+ 1"
-            android:id="@+id/increaseOppPoison"
-            android:layout_below="@+id/oppPoison"
-            android:layout_alignLeft="@+id/increaseOppEnergy"
-            android:layout_alignStart="@+id/increaseOppEnergy" />
+        android:layout_weight="5">
 
     </RelativeLayout>
 

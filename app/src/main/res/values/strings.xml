@@ -7,4 +7,5 @@
     <string name="ok">Ok</string>
     <string name="cancel">Cancel</string>
     <string name="dice_rolled">""</string>
+    <string name="action_add">Add Player</string>
 </resources>

@@ -38,7 +38,6 @@ public class roleDice extends DialogFragment {
         });
 
 
-
 // Create the AlertDialog
         return builder.create();
 
