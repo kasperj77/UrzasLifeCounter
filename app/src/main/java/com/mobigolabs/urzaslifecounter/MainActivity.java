@@ -2,6 +2,7 @@
 
 package com.mobigolabs.urzaslifecounter;
 
+import android.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -11,119 +12,23 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.w3c.dom.Text;
+
 public class MainActivity extends AppCompatActivity  implements View.OnClickListener{
 
-    // Declaring our buttons for increasing and decreasing life. --------------------------------
-
-    private int yourValue = 20;
-
-    private int yourEnergyValue = 0;
-    private int yourPoisonValue = 0;
-
-    private Button btnAddLife;
-    private Button btnDecreaseLife;
-
-    private Button btnAddYourEnergy;
-    private Button btnDecreaseYourEnergy;
-
-
-    private Button btnAddYourPoison;
-    private Button btnDecreaseYourPoison;
-
-
-    private TextView yourLife;
-
-    private TextView yourPoisonCount;
-    private TextView yourEnergyCount;
-
+    android.app.FragmentManager fragmentManager = getFragmentManager();
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.lifecounter_layout);
-
-
-        // Initializing our buttons and life total ----------------------------------------------
-
-        btnAddLife = (Button) findViewById(R.id.increaseYourLife);
-        btnDecreaseLife = (Button) findViewById(R.id.decreaseYourLife);
-        yourLife = (TextView) findViewById(R.id.yourLifeTotal);
-
-        // Initializing our buttons for energy, poison and totals -------------------------------
-
-        btnAddYourEnergy = (Button) findViewById(R.id.increaseYourEnergy);
-        btnDecreaseYourEnergy = (Button) findViewById(R.id.decreaseYourEnergy);
-
-        btnAddYourPoison = (Button) findViewById(R.id.increaseYourPoison);
-        btnDecreaseYourPoison = (Button) findViewById(R.id.decreaseYourPoison);
-
-        yourEnergyCount = (TextView) findViewById(R.id.yourEnergyCounter);
-        yourPoisonCount = (TextView) findViewById(R.id.yourPoisonCounter);
-
-
-
-        // Setting onClick listeners for the buttons --------------------------------------------
-
-        btnAddLife.setOnClickListener(this);
-        btnDecreaseLife.setOnClickListener(this);
-        btnAddYourEnergy.setOnClickListener(this);
-        btnDecreaseYourEnergy.setOnClickListener(this);
-        btnAddYourPoison.setOnClickListener(this);
-        btnDecreaseYourPoison.setOnClickListener(this);
+        setContentView(R.layout.activity_main);
 
     }
 
     @Override
     public void onClick(View view){
 
-        switch (view.getId()){
-            case R.id.increaseYourLife:
-                yourValue ++;
-                yourLife.setText("" + yourValue);
-                break;
-            case R.id.decreaseYourLife:
-                yourValue --;
-                yourLife.setText("" + yourValue);
-                break;
-            case R.id.increaseYourEnergy:
-                yourEnergyValue ++;
-                yourEnergyCount.setText("" + yourEnergyValue);
-                break;
-            case R.id.decreaseYourEnergy:
-                yourEnergyValue --;
-                yourEnergyCount.setText("" + yourEnergyValue);
-                break;
-            case R.id.increaseYourPoison:
-                yourPoisonValue ++;
-                yourPoisonCount.setText("" + yourPoisonValue);
-                break;
-            case R.id.decreaseYourPoison:
-                yourPoisonValue --;
-                yourPoisonCount.setText("" + yourPoisonValue);
-                break;
-
-        }
-
-    }
-
-    private void newGame(){
-
-        yourValue = 20;
-        yourEnergyValue = 0;
-        yourPoisonValue = 0;
-        yourLife.setText("" + yourValue);
-        yourEnergyCount.setText("" + yourEnergyValue);
-        yourPoisonCount.setText("" + yourPoisonValue);
-        Toast.makeText(MainActivity.this, "A new game has started",
-                Toast.LENGTH_LONG).show();
-    }
-
-    private void flipCoin(){
-
-    }
-
-    private void diceRoll(){
 
     }
 
@@ -134,9 +39,8 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
         mTempPlayer = n;
     }
 
-
-
     // setting up menu options and inflating it --------------------------------
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -162,9 +66,20 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
                 roleDice dice = new roleDice();
                 dice.show(getFragmentManager(),"");
                 break;
+
             case R.id.action_add:
-                NewPlayer magicPlayer = new NewPlayer();
-                magicPlayer.show(getFragmentManager(), "");
+
+                FragmentTransaction transaction = fragmentManager.beginTransaction();
+
+                //NewPlayer magicPlayer = new NewPlayer();
+                //magicPlayer.show(getFragmentManager(), "");
+
+                showPlayer newMagicPlayer = new showPlayer();
+
+                newMagicPlayer.sendPlayerSelected(mTempPlayer);
+
+                transaction.add(R.id.fragment_holder,newMagicPlayer);
+                transaction.commit();
                 return true;
         }
 

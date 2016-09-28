@@ -9,9 +9,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-/**
- * Created by jordan on 9/27/16.
- */
 public class NewPlayer extends DialogFragment {
 
     @Override
@@ -28,10 +25,8 @@ public class NewPlayer extends DialogFragment {
 
 
         // get a reference to each of the UI widgets, marking as final because they will be used
-        // in an anonymous class. ---------------------------------------------------------------
 
         final EditText playerName = (EditText) dialogView.findViewById(R.id.playerName);
-        final EditText lifeTotal = (EditText) dialogView.findViewById(R.id.lifeTotal);
 
         Button btnCancel = (Button) dialogView.findViewById(R.id.btnCancel);
         Button btnOK = (Button) dialogView.findViewById(R.id.btnOk);
@@ -50,7 +45,6 @@ public class NewPlayer extends DialogFragment {
         });
 
 
-
         // Handle the OK button onClick-----------------------------------------------------------
 
         btnOK.setOnClickListener(new View.OnClickListener() {
@@ -62,12 +56,12 @@ public class NewPlayer extends DialogFragment {
 
                 //Set its variables to match the users entries on the form
                 newMagicPlayer.setmName(playerName.getText().toString());
-                newMagicPlayer.setmLifeTotal(lifeTotal.getText().toString());
+                newMagicPlayer.setmLifeTotal(20);
 
                 // Get a reference to MainActivity
                 MainActivity callingActivity = (MainActivity) getActivity();
 
-                // Pass newNote back to MainActivity
+                // Pass newPlayer back to MainActivity
                 callingActivity.createNewPlayer(newMagicPlayer);
 
                 //Quit the dialog

@@ -12,12 +12,11 @@
             android:layout_height="wrap_content"
             android:text="Ok"
             android:id="@+id/btnOk"
-            android:layout_marginBottom="59dp"
             android:layout_alignParentBottom="true"
-            android:layout_toLeftOf="@+id/btnCancel"
-            android:layout_toStartOf="@+id/btnCancel"
-            android:layout_marginRight="34dp"
-            android:layout_marginEnd="34dp" />
+            android:layout_alignRight="@+id/playerName"
+            android:layout_alignEnd="@+id/playerName"
+            android:layout_marginRight="59dp"
+            android:layout_marginEnd="59dp" />
 
         <Button
             android:layout_width="wrap_content"
@@ -25,30 +24,27 @@
             android:text="Cancel"
             android:id="@+id/btnCancel"
             android:layout_gravity="center_horizontal"
-            android:layout_marginRight="79dp"
-            android:layout_marginEnd="79dp"
-            android:layout_alignTop="@+id/btnOk"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true" />
-
-        <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/lifeTotal"
-            android:hint="Life Total"
-            android:inputType="number"
-            android:layout_alignParentTop="true"
-            android:layout_toRightOf="@+id/btnOk"
-            android:layout_toEndOf="@+id/btnOk" />
+            android:layout_marginLeft="62dp"
+            android:layout_marginStart="62dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignLeft="@+id/playerName"
+            android:layout_alignStart="@+id/playerName" />
 
         <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/playerName"
             android:hint="Player Name"
-            android:layout_alignParentTop="true"
-            android:layout_alignRight="@+id/btnOk"
-            android:layout_alignEnd="@+id/btnOk" />
+            android:layout_centerInParent="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Enter Player&apos;s Name"
+            android:id="@+id/playerNameView"
+            android:layout_marginTop="20dp"
+            android:layout_centerHorizontal="true" />
 
     </RelativeLayout>
 </LinearLayout>
