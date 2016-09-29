@@ -23,22 +23,17 @@
             android:text="20"
             android:id="@+id/yourLifeTotal"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textSize="140dp"
-            android:layout_alignTop="@+id/yourLife"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_marginLeft="24dp"
-            android:layout_marginStart="24dp" />
+            android:textSize="60dp"
+            android:layout_above="@+id/increaseYourPoison"
+            android:layout_toLeftOf="@+id/increaseYourPoison"
+            android:layout_toStartOf="@+id/increaseYourPoison" />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="+ 1"
             android:id="@+id/increaseYourLife"
-            android:layout_below="@+id/yourLife"
-            android:layout_toRightOf="@+id/yourLife"
-            android:layout_toEndOf="@+id/yourLife"
-            android:layout_marginTop="15dp" />
+            android:layout_below="@+id/yourLife" />
 
         <Button
             android:layout_width="wrap_content"
@@ -46,10 +41,95 @@
             android:text="- 1"
             android:id="@+id/decreaseYourLife"
             android:layout_below="@+id/increaseYourLife"
-            android:layout_alignLeft="@+id/increaseYourLife"
-            android:layout_alignStart="@+id/increaseYourLife" />
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Energy"
+            android:id="@+id/yourEnergy"
+            android:layout_below="@+id/yourLife"
+            android:layout_alignRight="@+id/decreaseYourPoison"
+            android:layout_alignEnd="@+id/decreaseYourPoison" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Poison"
+            android:id="@+id/yourPosion"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:layout_above="@+id/yourEnergyCounter"
+            android:layout_toRightOf="@+id/yourEnergy"
+            android:layout_toEndOf="@+id/yourEnergy"
+            android:layout_marginLeft="26dp"
+            android:layout_marginStart="26dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0"
+            android:id="@+id/yourEnergyCounter"
+            android:layout_below="@+id/yourEnergy"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textSize="40dp"
+            android:layout_alignRight="@+id/yourPosion"
+            android:layout_alignEnd="@+id/yourPosion" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0"
+            android:id="@+id/yourPoisonCounter"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textSize="40dp"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/yourLife"
+            android:layout_toEndOf="@+id/yourLife" />
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="+ 1"
+            android:id="@+id/increaseYourEnergy"
+            android:layout_alignParentBottom="true"
+            android:layout_toLeftOf="@+id/decreaseYourEnergy"
+            android:layout_toStartOf="@+id/decreaseYourEnergy" />
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="- 1"
+            android:id="@+id/decreaseYourEnergy"
+            android:layout_alignParentBottom="true"
+            android:layout_alignLeft="@+id/yourEnergyCounter"
+            android:layout_alignStart="@+id/yourEnergyCounter" />
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="+ 1"
+            android:id="@+id/increaseYourPoison"
+            android:layout_alignParentBottom="true"
+            android:layout_toLeftOf="@+id/decreaseYourPoison"
+            android:layout_toStartOf="@+id/decreaseYourPoison" />
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="- 1"
+            android:id="@+id/decreaseYourPoison"
+            android:layout_alignParentBottom="true"
+            android:layout_alignRight="@+id/yourPoisonCounter"
+            android:layout_alignEnd="@+id/yourPoisonCounter" />
 
     </RelativeLayout>
+
 
     <RelativeLayout
         android:layout_width="match_parent"
