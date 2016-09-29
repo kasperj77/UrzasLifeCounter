@@ -29,6 +29,7 @@ public class NewPlayer extends DialogFragment {
         final EditText playerName = (EditText) dialogView.findViewById(R.id.playerName);
 
         Button btnCancel = (Button) dialogView.findViewById(R.id.btnCancel);
+
         Button btnOK = (Button) dialogView.findViewById(R.id.btnOk);
 
         builder.setView(dialogView);

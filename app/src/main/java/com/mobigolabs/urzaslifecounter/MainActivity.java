@@ -1,45 +1,53 @@
-// adding a comment to deploy to Codeship
-
 package com.mobigolabs.urzaslifecounter;
 
 import android.app.FragmentTransaction;
+import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import org.w3c.dom.Text;
 
-public class MainActivity extends AppCompatActivity  implements View.OnClickListener{
+import java.util.ArrayList;
+import java.util.List;
 
-    android.app.FragmentManager fragmentManager = getFragmentManager();
+public class MainActivity extends AppCompatActivity{
 
+    private PlayerAdapter mPlayerAdapter;
+
+    public void createNewPlayer(player n) {
+
+        mPlayerAdapter.addPlayer(n);
+    }
+
+
+    // Setting up layout and setting the list for users and adapter -------------------------------
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        mPlayerAdapter = new PlayerAdapter();
+
+        ListView listPlayer = (ListView) findViewById(R.id.listView);
+
+        assert listPlayer != null;
+        listPlayer.setAdapter(mPlayerAdapter);
+
     }
 
-    @Override
-    public void onClick(View view){
-
-
-    }
-
-    player mTempPlayer = new player();
-
-    public void createNewPlayer(player n){
-        //Temporary code
-        mTempPlayer = n;
-    }
-
-    // setting up menu options and inflating it --------------------------------
+    // setting up menu options and inflating it ---------------------------------------------------
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -48,7 +56,8 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
         return true;
     }
 
-    //--------------------------------------------------------------------------
+    // Handles the settings bar -------------------------------------------------------------------
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
@@ -69,20 +78,62 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
 
             case R.id.action_add:
 
-                FragmentTransaction transaction = fragmentManager.beginTransaction();
-
-                //NewPlayer magicPlayer = new NewPlayer();
-                //magicPlayer.show(getFragmentManager(), "");
-
-                showPlayer newMagicPlayer = new showPlayer();
-
-                newMagicPlayer.sendPlayerSelected(mTempPlayer);
-
-                transaction.add(R.id.fragment_holder,newMagicPlayer);
-                transaction.commit();
+                NewPlayer magicPlayer = new NewPlayer();
+                magicPlayer.show(getFragmentManager(), "");
                 return true;
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+
+    // Handles the display and layout of multiple players -----------------------------------------
+
+    public class PlayerAdapter extends BaseAdapter {
+
+        List<player> playerList = new ArrayList<player>();
+
+        public void addPlayer(player n) {
+            playerList.add(n);
+            notifyDataSetChanged();
+        }
+
+        @Override
+        public int getCount() {
+
+            return playerList.size();
+        }
+
+        @Override
+        public player getItem(int whichItem) {
+            // Returns the requested note
+            return playerList.get(whichItem);
+        }
+
+        @Override
+        public long getItemId(int whichItem) {
+            // Method used internally
+            return whichItem;
+        }
+
+        @Override
+        public View getView(int whichItem, View view, ViewGroup viewGroup) {
+
+            if (view == null) {
+                LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+                view = inflater.inflate(R.layout.lifecounter_layout, viewGroup, false);
+            }
+
+            // Grab a reference to the widget layouts
+            TextView playerName = (TextView) view.findViewById(R.id.yourLife);
+
+            // Hide any ImageView widgets that are not relevant
+            player tempPlayer = playerList.get(whichItem);
+
+            // Add the text to the heading
+            playerName.setText(tempPlayer.getmName());
+
+            return view;
+        }
     }
 }
