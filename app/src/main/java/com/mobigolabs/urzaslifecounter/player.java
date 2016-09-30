@@ -9,7 +9,7 @@ import android.widget.TextView;
 public class player {
 
     private String mName;
-    private int mLifeTotal;
+    private String mLifeTotal;
 
     public String getmName() {
         return mName;
@@ -19,11 +19,11 @@ public class player {
         this.mName = mName;
     }
 
-    public int getmLifeTotal() {
+    public String getmLifeTotal() {
         return mLifeTotal;
     }
 
-    public void setmLifeTotal(int mLifeTotal) {
+    public void setmLifeTotal(String mLifeTotal) {
         this.mLifeTotal = mLifeTotal;
     }
 }

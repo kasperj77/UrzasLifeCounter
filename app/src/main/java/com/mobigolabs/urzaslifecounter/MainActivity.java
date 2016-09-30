@@ -126,12 +126,14 @@ public class MainActivity extends AppCompatActivity{
 
             // Grab a reference to the widget layouts
             TextView playerName = (TextView) view.findViewById(R.id.yourLife);
+            TextView playerLife = (TextView) view.findViewById(R.id.yourLifeTotal);
 
             // Hide any ImageView widgets that are not relevant
             player tempPlayer = playerList.get(whichItem);
 
             // Add the text to the heading
             playerName.setText(tempPlayer.getmName());
+            playerLife.setText(tempPlayer.getmLifeTotal());
 
             return view;
         }

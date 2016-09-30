@@ -28,6 +28,8 @@ public class NewPlayer extends DialogFragment {
 
         final EditText playerName = (EditText) dialogView.findViewById(R.id.playerName);
 
+        final EditText playerLife = (EditText) dialogView.findViewById(R.id.playerLife);
+
         Button btnCancel = (Button) dialogView.findViewById(R.id.btnCancel);
 
         Button btnOK = (Button) dialogView.findViewById(R.id.btnOk);
@@ -57,7 +59,7 @@ public class NewPlayer extends DialogFragment {
 
                 //Set its variables to match the users entries on the form
                 newMagicPlayer.setmName(playerName.getText().toString());
-                newMagicPlayer.setmLifeTotal(20);
+                newMagicPlayer.setmLifeTotal(playerLife.getText().toString());
 
                 // Get a reference to MainActivity
                 MainActivity callingActivity = (MainActivity) getActivity();
