@@ -13,7 +13,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Settings"
+        android:text="@string/settings_title"
         android:id="@+id/settings"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
@@ -21,64 +21,72 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textAppearance="?android:attr/textAppearanceSmall"
         android:text="Sound FX"
-        android:id="@+id/SoundFx"
+        android:id="@+id/textView"
         android:layout_below="@+id/settings"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="26dp"
-        android:layout_marginBottom="15dp" />
+        android:layout_marginTop="26dp" />
 
     <CheckBox
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="On or Off"
+        android:text="@string/sound_checkbox"
         android:id="@+id/checkBoxSound"
-        android:checked="false"
-        android:layout_below="@+id/SoundFx"
+        android:layout_below="@+id/textView"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:checked="false" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Animation Speed"
-        android:id="@+id/annimationSpeed"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="@string/amims_title"
+        android:id="@+id/textView2"
         android:layout_below="@+id/checkBoxSound"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="25dp"
-        android:layout_marginBottom="15dp" />
+        android:layout_marginTop="28dp" />
 
-    <RadioButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Fast"
-        android:id="@+id/radioFast"
-        android:checked="false"
-        android:layout_below="@+id/annimationSpeed"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-    <RadioButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Slow"
-        android:id="@+id/radioSlow"
-        android:layout_below="@+id/radioFast"
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/textView2"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:checked="false" />
+        android:id="@+id/radioGroup">
 
-    <RadioButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="None"
-        android:id="@+id/radioNone"
-        android:layout_below="@+id/radioSlow"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:checked="false" />
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/rb_slow"
+            android:id="@+id/radioSlow"
+            android:layout_below="@+id/textView2"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:checked="false" />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/rb_fast"
+            android:id="@+id/radioFast"
+            android:layout_below="@+id/radioSlow"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:checked="false" />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/rb_none"
+            android:id="@+id/radioNone"
+            android:layout_below="@+id/radioFast"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:checked="false" />
+    </RadioGroup>
+
 </RelativeLayout>

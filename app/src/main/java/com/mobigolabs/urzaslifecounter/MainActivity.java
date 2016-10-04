@@ -3,6 +3,7 @@ package com.mobigolabs.urzaslifecounter;
 import android.app.FragmentTransaction;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -140,5 +141,18 @@ public class MainActivity extends AppCompatActivity{
 
             return view;
         }
+    }
+
+    private boolean mSound;
+    private int mAnimOption;
+    private SharedPreferences mPrefs;
+
+    @Override
+    protected void onResume(){
+        super.onResume();
+
+        mPrefs = getSharedPreferences("mobinotes", MODE_PRIVATE);
+        mSound = mPrefs.getBoolean("sound",true);
+        mAnimOption = mPrefs.getInt("anim option", SettingsActivity.FAST);
     }
 }
