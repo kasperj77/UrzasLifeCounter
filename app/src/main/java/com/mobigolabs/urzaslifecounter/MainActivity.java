@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -24,13 +25,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity{
-
-    private PlayerAdapter mPlayerAdapter;
-
-    public void createNewPlayer(player n) {
-
-        mPlayerAdapter.addPlayer(n);
-    }
 
 
     // Setting up layout and setting the list for users and adapter -------------------------------
@@ -91,10 +85,41 @@ public class MainActivity extends AppCompatActivity{
     }
 
 
+    private PlayerAdapter mPlayerAdapter;
+
+    public void createNewPlayer(player n){
+       mPlayerAdapter.addPlayer(n);
+    }
+
     // Handles the display and layout of multiple players -----------------------------------------
 
     public class PlayerAdapter extends BaseAdapter {
 
+        // setting the mSerializer variable -------------------------------------------------------
+        private JSONSerializer mSerializer;
+
+        // player Adapter method which sets up the Serializer to store the JSON data into file ----
+        public PlayerAdapter(){
+            mSerializer = new JSONSerializer("urzaslifecounter.json",MainActivity.this.getApplicationContext());
+            try {
+                playerList = mSerializer.load();
+            } catch (Exception e) {
+                playerList = new ArrayList<player>();
+                Log.e("Error loading notes: ", "", e);
+            }
+        }
+
+        // This is saving the notes when you leave the page. --------------------------------------
+        public void savePlayers(){
+            try{
+                mSerializer.save(playerList);
+            }
+            catch(Exception e){
+                Log.e("Error Saving Notes","", e);
+            }
+        }
+
+        // creating the list of players -----------------------------------------------------------
         List<player> playerList = new ArrayList<player>();
 
         public void addPlayer(player n) {
@@ -143,16 +168,18 @@ public class MainActivity extends AppCompatActivity{
         }
     }
 
-    private boolean mSound;
-    private int mAnimOption;
-    private SharedPreferences mPrefs;
-
     @Override
     protected void onResume(){
         super.onResume();
 
-        mPrefs = getSharedPreferences("mobinotes", MODE_PRIVATE);
-        mSound = mPrefs.getBoolean("sound",true);
-        mAnimOption = mPrefs.getInt("anim option", SettingsActivity.FAST);
+        SharedPreferences mPrefs = getSharedPreferences("urzaslifecounter", MODE_PRIVATE);
+        boolean mSound = mPrefs.getBoolean("sound", true);
+        int mAnimOption = mPrefs.getInt("anim option", SettingsActivity.FAST);
+    }
+
+    @Override
+    protected void onPause(){
+        super.onPause();
+        mPlayerAdapter.savePlayers();
     }
 }
