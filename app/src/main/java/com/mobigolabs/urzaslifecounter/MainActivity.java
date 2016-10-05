@@ -1,33 +1,29 @@
 package com.mobigolabs.urzaslifecounter;
 
-import android.app.FragmentTransaction;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.BaseAdapter;
-import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.PopupWindow;
 import android.widget.TextView;
-import android.widget.Toast;
-
-import org.w3c.dom.Text;
-
 import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity{
 
 
-    // Setting up layout and setting the list for users and adapter -------------------------------
+    // Setting up layout and setting the list for users and adapter
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,14 +32,22 @@ public class MainActivity extends AppCompatActivity{
 
         mPlayerAdapter = new PlayerAdapter();
 
-        ListView listPlayer = (ListView) findViewById(R.id.listView);
+        final ListView listPlayer = (ListView) findViewById(R.id.listView);
 
         assert listPlayer != null;
         listPlayer.setAdapter(mPlayerAdapter);
 
-    }
+        listPlayer.setLongClickable(true);
 
-    // setting up menu options and inflating it ---------------------------------------------------
+        listPlayer.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            public boolean onItemLongClick(AdapterView<?> adapter, View view, int whichItem, long id) {
+                // Ask NoteAdapter to delete this entry
+
+                mPlayerAdapter.deletePlayer(whichItem);
+                return true;
+            }
+        });
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -52,7 +56,7 @@ public class MainActivity extends AppCompatActivity{
         return true;
     }
 
-    // Handles the settings bar -------------------------------------------------------------------
+    // Handles the settings bar
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -84,14 +88,14 @@ public class MainActivity extends AppCompatActivity{
         return super.onOptionsItemSelected(item);
     }
 
-
     private PlayerAdapter mPlayerAdapter;
 
     public void createNewPlayer(player n){
-       mPlayerAdapter.addPlayer(n);
+
+        mPlayerAdapter.addPlayer(n);
     }
 
-    // Handles the display and layout of multiple players -----------------------------------------
+    // Handles the display and layout of multiple players
 
     public class PlayerAdapter extends BaseAdapter {
 
@@ -104,7 +108,7 @@ public class MainActivity extends AppCompatActivity{
             try {
                 playerList = mSerializer.load();
             } catch (Exception e) {
-                playerList = new ArrayList<player>();
+                playerList = new ArrayList<>();
                 Log.e("Error loading notes: ", "", e);
             }
         }
@@ -119,13 +123,13 @@ public class MainActivity extends AppCompatActivity{
             }
         }
 
-        // creating the list of players -----------------------------------------------------------
-        List<player> playerList = new ArrayList<player>();
-
-        public void addPlayer(player n) {
-            playerList.add(n);
+        public void deletePlayer(int n){
+            playerList.remove(n);
             notifyDataSetChanged();
         }
+
+        // creating the list of players -----------------------------------------------------------
+        List<player> playerList = new ArrayList<>();
 
         @Override
         public int getCount() {
@@ -152,6 +156,7 @@ public class MainActivity extends AppCompatActivity{
                 LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
                 view = inflater.inflate(R.layout.lifecounter_layout, viewGroup, false);
             }
+            view.setLongClickable(true);
 
             // Grab a reference to the widget layouts
             TextView playerName = (TextView) view.findViewById(R.id.yourLife);
@@ -166,6 +171,12 @@ public class MainActivity extends AppCompatActivity{
 
             return view;
         }
+
+        public void addPlayer(player n) {
+            playerList.add(n);
+            notifyDataSetChanged();
+        }
+
     }
 
     @Override

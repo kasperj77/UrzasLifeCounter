@@ -10,7 +10,6 @@ import android.widget.RadioGroup;
 
 public class SettingsActivity extends AppCompatActivity {
 
-    private SharedPreferences mPrefs;
     private SharedPreferences.Editor mEditor;
 
     private boolean mSound;
@@ -26,7 +25,7 @@ public class SettingsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
 
-        mPrefs = getSharedPreferences("mobinotes",MODE_PRIVATE);
+        SharedPreferences mPrefs = getSharedPreferences("mobinotes", MODE_PRIVATE);
         mEditor = mPrefs.edit();
 
         mSound = mPrefs.getBoolean("sound", true);
@@ -57,6 +56,7 @@ public class SettingsActivity extends AppCompatActivity {
 
         RadioGroup radioGroup = (RadioGroup) findViewById(R.id.radioGroup);
         // Deselect all buttons
+        assert radioGroup != null;
         radioGroup.clearCheck();
 
         switch (mAnimOption){

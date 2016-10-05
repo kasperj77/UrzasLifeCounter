@@ -1,14 +1,7 @@
 package com.mobigolabs.urzaslifecounter;
-
-import android.widget.Button;
-import android.widget.TextView;
-
 import org.json.JSONException;
 import org.json.JSONObject;
 
-/**
- * Created by jordan on 9/27/16.
- */
 public class player {
 
     private String mName;

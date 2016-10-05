@@ -40,7 +40,7 @@ public class JSONSerializer {
         Writer writer = null;
 
         try {
-            OutputStream out = mContext.openFileOutput(mFilename, mContext.MODE_PRIVATE);
+            OutputStream out = mContext.openFileOutput(mFilename, Context.MODE_PRIVATE);
 
             writer = new OutputStreamWriter(out);
             writer.write(jArray.toString());
@@ -54,7 +54,7 @@ public class JSONSerializer {
     }
 
     public ArrayList<player> load() throws IOException, JSONException {
-        ArrayList<player> playerList = new ArrayList<player>();
+        ArrayList<player> playerList = new ArrayList<>();
 
         BufferedReader reader = null;
         try {
@@ -63,7 +63,7 @@ public class JSONSerializer {
             InputStream in = mContext.openFileInput(mFilename);
             reader = new BufferedReader(new InputStreamReader(in));
             StringBuilder jsonString = new StringBuilder();
-            String line = null;
+            String line;
 
             while ((line = reader.readLine()) != null) {
 
