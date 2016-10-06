@@ -14,6 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.PopupWindow;
 import android.widget.TextView;
@@ -32,7 +33,7 @@ public class MainActivity extends AppCompatActivity{
 
         mPlayerAdapter = new PlayerAdapter();
 
-        final ListView listPlayer = (ListView) findViewById(R.id.listView);
+        ListView listPlayer = (ListView) findViewById(R.id.listView);
 
         assert listPlayer != null;
         listPlayer.setAdapter(mPlayerAdapter);
@@ -42,6 +43,8 @@ public class MainActivity extends AppCompatActivity{
         listPlayer.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             public boolean onItemLongClick(AdapterView<?> adapter, View view, int whichItem, long id) {
                 // Ask NoteAdapter to delete this entry
+
+                Log.i("info", "Long clicking item");
 
                 mPlayerAdapter.deletePlayer(whichItem);
                 return true;
@@ -150,7 +153,7 @@ public class MainActivity extends AppCompatActivity{
         }
 
         @Override
-        public View getView(int whichItem, View view, ViewGroup viewGroup) {
+        public View getView(final int whichItem, View view, ViewGroup viewGroup) {
 
             if (view == null) {
                 LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -161,13 +164,41 @@ public class MainActivity extends AppCompatActivity{
             // Grab a reference to the widget layouts
             TextView playerName = (TextView) view.findViewById(R.id.yourLife);
             TextView playerLife = (TextView) view.findViewById(R.id.yourLifeTotal);
+            Button btnNotes = (Button) view.findViewById(R.id.btnNotes);
+
+            Button btnPlus = (Button) view.findViewById(R.id.increaseYourLife);
 
             // Hide any ImageView widgets that are not relevant
-            player tempPlayer = playerList.get(whichItem);
+            final player tempPlayer = playerList.get(whichItem);
 
             // Add the text to the heading
             playerName.setText(tempPlayer.getmName());
             playerLife.setText(tempPlayer.getmLifeTotal());
+
+
+            btnPlus.setOnClickListener(new View.OnClickListener()
+            {
+
+                @Override
+                public void onClick(View v){
+                    Log.i("info",tempPlayer.getmNotes());
+                }
+            });
+
+            btnNotes.setOnClickListener(new View.OnClickListener()
+            {
+                @Override
+                public void onClick(View v){
+                    Log.i("info", "clicking item");
+                    player tempPlayer = mPlayerAdapter.getItem(whichItem);
+                    // Create a new dialog window
+                    ShowPlayerNote dialog = new ShowPlayerNote();
+                    // Send in a reference to the note to be shown
+                    dialog.sendPlayerSelected(tempPlayer);
+                    // Show the dialog window with the note in it
+                    dialog.show(getFragmentManager(), "");
+                }
+            });
 
             return view;
         }
