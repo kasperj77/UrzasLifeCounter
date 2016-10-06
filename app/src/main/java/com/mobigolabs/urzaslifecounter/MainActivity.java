@@ -167,6 +167,7 @@ public class MainActivity extends AppCompatActivity{
             Button btnNotes = (Button) view.findViewById(R.id.btnNotes);
 
             Button btnPlus = (Button) view.findViewById(R.id.increaseYourLife);
+            Button btnMinus = (Button) view.findViewById(R.id.decreaseYourLife);
 
             // Hide any ImageView widgets that are not relevant
             final player tempPlayer = playerList.get(whichItem);
@@ -176,20 +177,10 @@ public class MainActivity extends AppCompatActivity{
             playerLife.setText(tempPlayer.getmLifeTotal());
 
 
-            btnPlus.setOnClickListener(new View.OnClickListener()
-            {
-
-                @Override
-                public void onClick(View v){
-                    Log.i("info",tempPlayer.getmNotes());
-                }
-            });
-
             btnNotes.setOnClickListener(new View.OnClickListener()
             {
                 @Override
                 public void onClick(View v){
-                    Log.i("info", "clicking item");
                     player tempPlayer = mPlayerAdapter.getItem(whichItem);
                     // Create a new dialog window
                     ShowPlayerNote dialog = new ShowPlayerNote();
