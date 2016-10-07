@@ -8,6 +8,8 @@ public class player {
     private String mLifeTotal;
     private String mNotes;
 
+    private int mPlayerLifeValue;
+
     private static final String JSON_NAME = "name";
     private static final String JSON_LIFETOTAL = "life total";
     private static final String JSON_NOTES = "player notes";
@@ -56,5 +58,13 @@ public class player {
 
     public void setmLifeTotal(String mLifeTotal) {
         this.mLifeTotal = mLifeTotal;
+    }
+
+    public int getmPlayerLifeValue() {
+        return mPlayerLifeValue;
+    }
+
+    public void setmPlayerLifeValue(int mplayerLifeValue) {
+        this.mPlayerLifeValue = mplayerLifeValue;
     }
 }

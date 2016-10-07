@@ -3,6 +3,7 @@ package com.mobigolabs.urzaslifecounter;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.DialogFragment;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -62,6 +63,9 @@ public class NewPlayer extends DialogFragment {
                 //Set its variables to match the users entries on the form
                 newMagicPlayer.setmName(playerName.getText().toString());
                 newMagicPlayer.setmLifeTotal(playerLife.getText().toString());
+
+                int playerLife = Integer.parseInt(newMagicPlayer.getmLifeTotal().toString());
+                newMagicPlayer.setmPlayerLifeValue(playerLife);
 
                 // Get a reference to MainActivity
                 MainActivity callingActivity = (MainActivity) getActivity();

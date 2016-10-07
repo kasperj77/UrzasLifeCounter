@@ -163,7 +163,7 @@ public class MainActivity extends AppCompatActivity{
 
             // Grab a reference to the widget layouts
             TextView playerName = (TextView) view.findViewById(R.id.yourLife);
-            TextView playerLife = (TextView) view.findViewById(R.id.yourLifeTotal);
+            final TextView playerLife = (TextView) view.findViewById(R.id.yourLifeTotal);
             Button btnNotes = (Button) view.findViewById(R.id.btnNotes);
 
             Button btnPlus = (Button) view.findViewById(R.id.increaseYourLife);
@@ -176,6 +176,27 @@ public class MainActivity extends AppCompatActivity{
             playerName.setText(tempPlayer.getmName());
             playerLife.setText(tempPlayer.getmLifeTotal());
 
+            btnMinus.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    int totalLife = tempPlayer.getmPlayerLifeValue();
+                    int decreaseLife = totalLife-1;
+                    tempPlayer.setmPlayerLifeValue(decreaseLife);
+                    tempPlayer.setmLifeTotal(String.valueOf(decreaseLife));
+                    playerLife.setText(String.valueOf(decreaseLife));
+                }
+            });
+
+            btnPlus.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    int totalLife = tempPlayer.getmPlayerLifeValue();
+                    int increaseLife = totalLife+1;
+                    tempPlayer.setmPlayerLifeValue(increaseLife);
+                    tempPlayer.setmLifeTotal(String.valueOf(increaseLife));
+                    playerLife.setText(String.valueOf(increaseLife));
+                }
+            });
 
             btnNotes.setOnClickListener(new View.OnClickListener()
             {

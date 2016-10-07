@@ -1,14 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="fill_parent"
-    android:layout_height="fill_parent">
+    android:layout_height="fill_parent"
+    android:paddingBottom="20dp">
 
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="5dp"
-        android:background="#00cbea">
+        android:background="#00cbea"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="5dp">
 
         <TextView
             android:layout_width="wrap_content"
@@ -20,7 +24,7 @@
             android:layout_centerHorizontal="true"
             android:textColor="#ffffff"
             android:textStyle="bold"
-            android:textSize="25dp"
+            android:textSize="15dp"
             android:typeface="serif"
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="10dp" />
@@ -28,15 +32,18 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="166dp"
-        android:background="#78c6dc">
+        android:layout_height="140dp"
+        android:background="#78c6dc"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginBottom="5dp">
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="- 1"
             android:id="@+id/decreaseYourLife"
-            android:layout_alignParentBottom="true"
+            android:layout_alignTop="@+id/increaseYourLife"
             android:layout_toRightOf="@+id/increaseYourLife"
             android:layout_toEndOf="@+id/increaseYourLife" />
 
@@ -45,7 +52,7 @@
             android:layout_height="wrap_content"
             android:text="+ 1"
             android:id="@+id/increaseYourLife"
-            android:layout_alignParentBottom="true"
+            android:layout_below="@+id/yourLifeTotal"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true" />
 
@@ -57,7 +64,7 @@
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textSize="70dp"
             android:layout_marginLeft="50dp"
-            android:layout_marginTop="30dp" />
+            android:layout_marginTop="0dp" />
 
         <ImageView
             android:layout_width="wrap_content"
@@ -65,16 +72,17 @@
             android:id="@+id/user"
             android:src="@drawable/user"
             android:layout_above="@+id/btnNotes"
-            android:layout_alignTop="@+id/yourLifeTotal"
+            android:layout_alignParentTop="true"
             android:layout_alignLeft="@+id/btnNotes"
-            android:layout_alignStart="@+id/btnNotes" />
+            android:layout_alignStart="@+id/btnNotes"
+            android:paddingTop="5dp" />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Player Notes"
             android:id="@+id/btnNotes"
-            android:layout_alignParentBottom="true"
+            android:layout_below="@+id/yourLifeTotal"
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true" />
 
