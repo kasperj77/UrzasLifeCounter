@@ -25,9 +25,11 @@
         </activity>
 
         <!-- main activity -->
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity"
+            android:label="Urza's Life Counter">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
 
 
                 <category android:name="android.intent.category.LAUNCHER" />

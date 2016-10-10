@@ -9,7 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="5dp"
-        android:background="#FF303F9F"
+        android:background="#455A64"
         android:layout_marginLeft="5dp"
         android:layout_marginTop="5dp"
         android:layout_marginRight="5dp">
@@ -33,10 +33,11 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="96dp"
-        android:background="#FF3F51B5"
+        android:background="#546E7A"
         android:layout_marginLeft="5dp"
         android:layout_marginRight="5dp"
-        android:layout_marginBottom="5dp">
+        android:layout_marginBottom="5dp"
+        android:elevation="30dp">
 
         <Button
             android:layout_width="wrap_content"
@@ -55,8 +56,8 @@
             android:id="@+id/increaseYourLife"
             style="?android:attr/buttonStyleSmall"
             android:layout_alignParentTop="true"
-            android:layout_toRightOf="@+id/yourLifeTotal"
-            android:layout_toEndOf="@+id/yourLifeTotal" />
+            android:layout_toLeftOf="@+id/btnNotes"
+            android:layout_toStartOf="@+id/btnNotes" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -69,38 +70,25 @@
             android:layout_centerVertical="true"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp" />
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/user"
-            android:src="@drawable/user"
-            android:layout_above="@+id/btnNotes"
-            android:paddingTop="5dp"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true"
-            android:layout_alignLeft="@+id/btnNotes"
-            android:layout_alignStart="@+id/btnNotes"
-            android:layout_alignParentTop="true" />
+            android:layout_marginLeft="20dp" />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Player Notes"
+            android:text="Notes"
             android:id="@+id/btnNotes"
             android:layout_alignParentBottom="true"
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true" />
 
-    </RelativeLayout>
-
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="5">
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Dices"
+            android:id="@+id/diceRoll"
+            android:layout_above="@+id/btnNotes"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
 
     </RelativeLayout>
 
