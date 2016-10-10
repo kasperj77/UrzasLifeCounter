@@ -9,7 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="5dp"
-        android:background="#00cbea"
+        android:background="#FF303F9F"
         android:layout_marginLeft="5dp"
         android:layout_marginTop="5dp"
         android:layout_marginRight="5dp">
@@ -33,7 +33,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="96dp"
-        android:background="#78c6dc"
+        android:background="#FF3F51B5"
         android:layout_marginLeft="5dp"
         android:layout_marginRight="5dp"
         android:layout_marginBottom="5dp">
@@ -65,11 +65,12 @@
             android:id="@+id/yourLifeTotal"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textSize="70dp"
+            android:textColor="#ffffff"
             android:layout_centerVertical="true"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:layout_marginLeft="20dp"
-            android:layout_marginStart="20dp" />
+            android:layout_marginRight="20dp" />
 
         <ImageView
             android:layout_width="wrap_content"
