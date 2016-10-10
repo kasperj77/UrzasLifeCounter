@@ -6,21 +6,21 @@
         android:orderInCategory="100" app:showAsAction="never" />
 
     <!-- Our add icon will have its own button -->
-    <item android:id="@+id/action_roll"
-        android:icon="@drawable/dices"
-        android:title="@string/action_rollDice"
-        app:showAsAction="ifRoom" />
-    <item android:id="@+id/action_flip"
-        android:icon="@drawable/coin"
-        android:title="@string/action_flipCoin"
-        app:showAsAction="ifRoom" />
-    <item android:id="@+id/action_new"
-        android:icon="@drawable/ic_autorenew_white_24dp"
-        android:title="@string/action_new"
-        app:showAsAction="ifRoom" />
     <item android:id="@+id/action_add"
         android:icon="@drawable/ic_add_white_24dp"
         android:title="@string/action_add"
         app:showAsAction="ifRoom" />
+    <item android:id="@+id/action_roll"
+        android:icon="@drawable/dices"
+        android:title="@string/action_rollDice"
+        app:showAsAction="never" />
+    <item android:id="@+id/action_flip"
+        android:icon="@drawable/coin"
+        android:title="@string/action_flipCoin"
+        app:showAsAction="never" />
+    <item android:id="@+id/action_new"
+        android:icon="@drawable/ic_autorenew_white_24dp"
+        android:title="@string/action_new"
+        app:showAsAction="never" />
 
 </menu>
