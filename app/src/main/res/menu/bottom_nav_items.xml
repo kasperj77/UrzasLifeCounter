@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/coin_flip"
+        android:title="Coin"
+        android:icon="@drawable/coin" />
+    <item
+        android:id="@+id/roll_dice"
+        android:title="Dice"
+        android:icon="@drawable/dices" />
+    <item
+        android:id="@+id/new_game"
+        android:title="New Game"
+        android:icon="@drawable/ic_autorenew_white_24dp" />
+</menu>

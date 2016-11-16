@@ -3,10 +3,11 @@ package com.mobigolabs.urzaslifecounter;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.support.annotation.NonNull;
+import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -16,13 +17,13 @@ import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ListView;
-import android.widget.PopupWindow;
 import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity{
 
+    private BottomNavigationView mBottomNav;
 
     // Setting up layout and setting the list for users and adapter
 
@@ -50,7 +51,20 @@ public class MainActivity extends AppCompatActivity{
                 return true;
             }
         });
+
+        mBottomNav = (BottomNavigationView) findViewById(R.id.navigation);
+        mBottomNav.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+
+                Log.i("ITEM ID",item.toString());
+                return true;
+            }
+        });
     }
+
+
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -68,12 +82,6 @@ public class MainActivity extends AppCompatActivity{
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            Intent intent = new Intent(this,SettingsActivity.class);
-            startActivity(intent);
-            return true;
-        }
         switch (id){
 
             case R.id.action_roll:
@@ -226,9 +234,6 @@ public class MainActivity extends AppCompatActivity{
     protected void onResume(){
         super.onResume();
 
-        SharedPreferences mPrefs = getSharedPreferences("urzaslifecounter", MODE_PRIVATE);
-        boolean mSound = mPrefs.getBoolean("sound", true);
-        int mAnimOption = mPrefs.getInt("anim option", SettingsActivity.FAST);
     }
 
     @Override
