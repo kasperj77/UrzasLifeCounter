@@ -58,7 +58,24 @@ public class MainActivity extends AppCompatActivity{
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
                 Log.i("ITEM ID",item.toString());
+
+                int id = item.getItemId();
+
+                switch (id) {
+
+                    case R.id.roll_dice:
+                        roleDice dice = new roleDice();
+                        dice.show(getFragmentManager(), "");
+                        break;
+
+                    case R.id.coin_flip:
+                        coinFlip coin = new coinFlip();
+                        coin.show(getFragmentManager(), "");
+
+                        break;
+                }
                 return true;
+
             }
         });
     }
@@ -83,11 +100,6 @@ public class MainActivity extends AppCompatActivity{
         int id = item.getItemId();
 
         switch (id){
-
-            case R.id.action_roll:
-                roleDice dice = new roleDice();
-                dice.show(getFragmentManager(),"");
-                break;
 
             case R.id.action_add:
 

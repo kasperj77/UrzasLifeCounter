@@ -35,9 +35,12 @@
 
     <android.support.design.widget.BottomNavigationView
         android:id="@+id/navigation"
+        android:elevation="30dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="start"
         design:menu="@menu/bottom_nav_items"
+        design:itemIconTint="@color/background"
+        design:itemTextColor="@color/background"
         design:itemBackground="@color/primary_material_dark"/>
 </LinearLayout>
